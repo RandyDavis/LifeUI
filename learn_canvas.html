@@ -27,30 +27,36 @@
     function draw() {
       // assign canvas element to a variable
       var canvas = document.getElementById('canvas1');
-      // create html5 context objet to enable draw methods - .getContext()
-      // Create center triangle of logo
-      var ctx = canvas.getContext("2d");
-      ctx.beginPath();
-      ctx.moveTo(100, 50);
-      ctx.lineTo(130, 100);
-      ctx.lineTo(70, 100);
-      ctx.fillStyle = "rgba(0, 200, 0, 1)";
-      ctx.fill();  // will close up shape even if left open
-      // ctx.closePath(); // used to close up shapes drawn with .stroke()
-      // ctx.stroke();  // shows outline of shape/lines drawn
 
-      // create left flap of logo
-      ctx.beginPath();
-      ctx.moveTo(72, 60);
-      ctx.lineTo(85, 72);
-      ctx.lineTo(71, 94);
-      ctx.lineTo(50, 70);
-      ctx.lineTo(65, 40);
-      ctx.fillStyle = "rgba(200, 0, 0, 1)";
-      ctx.fill();
+      // Check to see if the canvas is supported by the browser
+      if (canvas.getContext) {
+        // create html5 context object to enable draw methods - .getContext()
+        // Create center triangle of logo
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(100, 50);
+        ctx.lineTo(130, 100);
+        ctx.lineTo(70, 100);
+        ctx.fillStyle = "rgba(0, 200, 0, 1)";
+        ctx.fill();  // will close up shape even if left open
+        // ctx.closePath(); // used to close up shapes drawn with .stroke()
+        // ctx.stroke();  // shows outline of shape/lines drawn
 
-      // HW - Draw filled shape here: build right flap of logo
-      
+        // create left flap of logo
+        ctx.beginPath();
+        ctx.moveTo(72, 60);
+        ctx.lineTo(85, 72);
+        ctx.lineTo(71, 94);
+        ctx.lineTo(50, 70);
+        ctx.lineTo(65, 40);
+        ctx.fillStyle = "rgba(200, 0, 0, 1)";
+        ctx.fill();
+
+        // HW - Draw filled shape here: build right flap of logo
+        
+
+      };
+
 
       
     }
@@ -58,6 +64,8 @@
 </head>
 <body>
   <!-- Learning/Experimenting with HTML 5 Canvas -->
-  <canvas id="canvas1" width="400" height="300"</canvas>
+  <canvas id="canvas1" width="400" height="300">
+    <p>Fall back content in case browser doesn't support HTML5 canvas</p>
+  </canvas>
 </body>
 </html>
